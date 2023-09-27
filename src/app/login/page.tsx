@@ -1,11 +1,12 @@
 'use client';
 
 import { Button, Col, Row } from 'antd';
-import login from '@/assets/login.gif';
+import loginImage from '@/assets/login.gif';
 import Image from 'next/image';
 import Form from '@/components/Forms/Form';
 import FormInput from '@/components/Forms/FormInput';
 import { SubmitHandler } from 'react-hook-form';
+import { useUserLoginMutation } from '@/redux/api/authApi';
 
 type FormValues = {
   id: string;
@@ -13,15 +14,18 @@ type FormValues = {
 };
 
 const LoginPage = () => {
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+  const [login] = useUserLoginMutation();
+
+  const onSubmit: SubmitHandler<FormValues> = async(data) => {
+    const res = await login({...data});
+    console.log(res);
   };
 
   return (
     <div>
       <Row justify='center' align='middle' style={{minHeight:'100vh'}}>
         <Col sm={12} md={16} lg={10}>
-          <Image src={login} alt="login image" width={500} />
+          <Image src={loginImage} alt="login image" width={500} />
         </Col>
         <Col sm={12} md={8} lg={8}>
           <h1>First login your account</h1>
