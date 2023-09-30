@@ -1,11 +1,7 @@
-import React from "react";
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
 const Loading = () => {
-  return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
-  );
+  return <LoadingSpinner />;
 };
 
 export default Loading;

@@ -1,4 +1,4 @@
-import type { MenuProps } from "antd";
+import type { MenuProps } from 'antd';
 import {
   ProfileOutlined,
   TableOutlined,
@@ -7,18 +7,18 @@ import {
   ThunderboltOutlined,
   CreditCardOutlined,
   FileTextOutlined,
-} from "@ant-design/icons";
-import Link from "next/link";
-import { USER_ROLE } from "./role";
+} from '@ant-design/icons';
+import Link from 'next/link';
+import { USER_ROLE } from './role';
 export const sidebarItems = (role: string) => {
-  const defaultSidebarItems: MenuProps["items"] = [
+  const defaultSidebarItems: MenuProps['items'] = [
     {
-      label: "Profile",
-      key: "profile",
+      label: 'Profile',
+      key: 'profile',
       icon: <ProfileOutlined />,
       children: [
         {
-          label: <Link href={`/${role}/profile`}>Account Profile</Link>,
+          label: <Link href={`/${role}`}>Account Profile</Link>,
           key: `/${role}/profile`,
         },
         {
@@ -29,7 +29,7 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  const commonAdminSidebarItems: MenuProps["items"] = [
+  const commonAdminSidebarItems: MenuProps['items'] = [
     {
       label: <Link href={`/${role}/manage-student`}>Manage Students</Link>,
       icon: <TableOutlined />,
@@ -42,12 +42,12 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  const adminSidebarItems: MenuProps["items"] = [
+  const adminSidebarItems: MenuProps['items'] = [
     ...defaultSidebarItems,
     ...commonAdminSidebarItems,
     {
-      label: "Manage academic",
-      key: "manage-academic",
+      label: 'Manage academic',
+      key: 'manage-academic',
       icon: <TableOutlined />,
       children: [
         {
@@ -65,8 +65,8 @@ export const sidebarItems = (role: string) => {
       ],
     },
     {
-      label: "Management",
-      key: "management",
+      label: 'Management',
+      key: 'management',
       icon: <AppstoreOutlined />,
       children: [
         {
@@ -117,7 +117,7 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  const superAdminSidebarItems: MenuProps["items"] = [
+  const superAdminSidebarItems: MenuProps['items'] = [
     ...defaultSidebarItems,
     ...commonAdminSidebarItems,
     {
@@ -131,19 +131,8 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/user`,
     },
     {
-      label: "Manage permission",
-      key: "manage-permission",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link href={`/${role}/permission`}>View permissions</Link>,
-          key: `/${role}/permission`,
-        },
-      ],
-    },
-    {
-      label: "Management",
-      key: "management",
+      label: 'Management',
+      key: 'management',
       icon: <AppstoreOutlined />,
       children: [
         {
@@ -154,7 +143,7 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  const facultySidebarItems: MenuProps["items"] = [
+  const facultySidebarItems: MenuProps['items'] = [
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/courses`}>Courses</Link>,
@@ -163,7 +152,7 @@ export const sidebarItems = (role: string) => {
     },
   ];
 
-  const studentSidebarItems: MenuProps["items"] = [
+  const studentSidebarItems: MenuProps['items'] = [
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/courses`}>Courses</Link>,

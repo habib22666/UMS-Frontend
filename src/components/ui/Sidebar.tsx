@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { USER_ROLE } from "@/constants/role";
-import { sidebarItems } from "@/constants/sidebarItems";
-import { Menu, Layout } from "antd";
-import React, { useState } from "react";
+import { sidebarItems } from '@/constants/sidebarItems';
+import { getUserInfo } from '@/services/auth.service';
+import { Menu, Layout } from 'antd';
+import React, { useState } from 'react';
 
 const { Sider } = Layout;
 
-
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const role = USER_ROLE.ADMIN;
+  // const role = USER_ROLE.ADMIN;
+  const {role} = getUserInfo() as any;
 
   return (
     <Sider
@@ -19,28 +19,29 @@ const SideBar = () => {
       onCollapse={(value) => setCollapsed(value)}
       width={280}
       style={{
-        overflow: "auto",
-        height: "100vh",
-        position: "sticky",
-        top: "0",
-        left: "0",
-        bottom: "0",
+        overflow: 'auto',
+        height: '100vh',
+        position: 'sticky',
+        top: '0',
+        left: '0',
+        bottom: '0',
       }}
     >
       <div
         style={{
-          color: "white",
-          fontSize: "2rem",
-          textAlign: "center",
-          fontWeight: "bold",
-          marginBottom: "1rem",
+          color: 'white',
+          fontSize: '2rem',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          marginBottom: '1rem',
+          padding: "1rem .5rem"
         }}
       >
-        PH-University
+        UMS
       </div>
       <Menu
         theme="dark"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={['1']}
         mode="inline"
         items={sidebarItems(role)}
       />
